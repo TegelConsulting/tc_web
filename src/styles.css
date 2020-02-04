@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 14pt;
+  min-height: 100%;
+}
+
+a, .link {
+  color: rgb(143, 35, 179);
+  text-decoration: none;
+}
+
+a:hover, .link {
+  text-decoration: none;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: grid;
+
+  grid-template-rows: [main] 1fr [footer] auto;
+}
+
+.footer {
+  grid-row: 2/3;
+}
+
+.hero {
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header {
+  display: grid;
+  padding: 20px;
+  font-size: 35pt;
+  font-weight: bold;
+  height: 95px;
+  background-color: rgba(255,255,255, 0.4);
+
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-content: left;
+  align-items: center;
+}

@@ -1,0 +1,22 @@
+.scrolltop-container {
+  width: 100%;
+
+  color: #000;
+  display: grid;
+  grid-template-columns: 1;
+  justify-content: center;
+}
+
+.scrolltop-container .circle {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  box-shadow: 0 0 5px 1px grey;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
+  justify-content: center;
+  align-content: center;
+}

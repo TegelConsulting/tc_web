@@ -1,0 +1,7 @@
+.hero {
+  background-image: url("../../../assets/images/nordwood-themes-EZSm8xRjnX0-unsplash.jpg");
+}
+
+.hero .content {
+  min-height: 100vh;
+}

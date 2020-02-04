@@ -1,0 +1,13 @@
+.hero {
+  background-image: url("../../../assets/images/christina-wocintechchat-com-F75IfIWSqRY-unsplash.jpg");
+}
+
+.hero .content {
+  min-height: 200vh;
+}
+
+.navbar {
+  display: block;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}

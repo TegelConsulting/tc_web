@@ -1,0 +1,18 @@
+<div class="hero">
+  <div id="contact" class="header">
+    <div [@fadeAnimation]="startTransition ? 'in' : 'out'">
+      Kontakta oss
+    </div>
+  </div>
+  <div class="content">
+    <form [formGroup]="contactForm" (ngSubmit)="sendMessage()" novalidate>
+      <input type="text" formControlName="name" placeholder="Namn" required />
+      <input type="email" formControlName="email" placeholder="someone@domain.se" required />
+      <input type="phone" formControlName="phone" placeholder="070-1234556" />
+
+      <textarea formControlName="message" placeholder="Beskriv din fråga här" cols="50" rows="10"></textarea>
+
+      <button type="submit" class="contactsubmit">Skicka</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.content {
+  min-height: 100vh;
+}
+
+.divider {
+  margin-bottom: 95px;
+}
+
+.scrollUpContainer {
+  position: sticky;
+  bottom: 40px;
+  margin-top: 20px;
+}

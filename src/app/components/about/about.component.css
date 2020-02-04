@@ -1,0 +1,7 @@
+.hero {
+  background-image: url("../../../assets/images/kristopher-roller-PC_lbSSxCZE-unsplash.jpg");
+}
+
+.hero .content {
+  min-height: 200vh;
+}
