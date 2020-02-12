@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ScrollService } from 'src/app/services/scrollService/scroll-service.service';
-import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -9,25 +9,31 @@ import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./contact.component.css'],
   animations: [
     trigger('fadeAnimation', [
-      state('out', style({opacity: 0})),
-      state('in', style({opacity: 1, paddingLeft: '30px'})),
+      state('out', style({opacity: 0, transform: 'translateX(0)'})),
+      state('in', style({opacity: 1, transform: 'translateX(30px)'})),
       transition('out => in',
-        animate(800)
+        animate('1s')
       )
+    ]),
+    trigger('buttonvalid', [
+      state('out', style({backgroundColor: 'rgba(239, 239, 239, 0.3)'})),
+      state('in', style({backgroundColor: 'forestgreen'})),
+      transition('out <=> in', animate(300))
     ])
   ]
 })
 export class ContactComponent implements OnInit {
   startTransition = false;
+  messageSend = false;
+  messageError = false;
   private scrollService: ScrollService;
   private formBuilder: FormBuilder;
 
-  contactForm = new FormGroup({
-    name: new FormControl(),
-    email: new FormControl(),
-    phone: new FormControl(),
-    message: new FormControl()
-  });
+  public contactForm: FormGroup;
+
+  get name() { return this.contactForm.get('name'); }
+  get email() { return this.contactForm.get('email'); }
+  get message() { return this.contactForm.get('message'); }
 
   constructor(scrollService: ScrollService, formBuilder: FormBuilder) {
     this.scrollService = scrollService;
@@ -41,15 +47,36 @@ export class ContactComponent implements OnInit {
       this.startTransition = this.inViewport(el);
     });
 
-    this.formBuilder.group({
-
+    this.contactForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+      phone: [''],
+      message: ['', Validators.required]
     });
   }
 
-  sendMessage() {
-    console.log('Send information to admin: ', this.contactForm.value);
+  async sendMessage() {
+    const mail = {
+        email: this.contactForm.value.email,
+        name: this.contactForm.value.name,
+        message: this.contactForm.value.message,
+        phone: this.contactForm.value.phone
+    };
 
     // Send mail through azure api
+    const response = await fetch('https://localhost:5001/sendmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(mail)
+    });
+
+    if (response.ok) {
+      this.messageSend = true;
+    } else {
+      this.messageError = true;
+    }
   }
 
   inViewport(el) {
@@ -62,7 +89,7 @@ export class ContactComponent implements OnInit {
     return ( !!r
       && r.bottom >= 0
       && r.right >= 0
-      && r.top <= html.clientHeight
+      && r.top < html.clientHeight
       && r.left <= html.clientWidth
     );
   }

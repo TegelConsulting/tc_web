@@ -1,7 +1,61 @@
 .hero {
-  background-image: url("../../../assets/images/kristopher-roller-PC_lbSSxCZE-unsplash.jpg");
+  background-image: url("../../../assets/images/sharon-mccutcheon-NkQD-RHhbvY-unsplash.jpg");
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 135px auto;
 }
 
 .hero .content {
-  min-height: 200vh;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20px [center] 1fr 20px;
+  grid-auto-flow: row;
+
+  justify-items: center;
+  align-items: center;
+}
+
+.hero .content section {
+  text-align: justify;
+  grid-column: center;
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1024px) {
+  .hero {
+    background-image: url("../../../assets/images/kristopher-roller-PC_lbSSxCZE-unsplash.jpg");
+  }
+
+  .hero .header div {
+    grid-column-end: 1;
+  }
+
+  .hero .content {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .hero .content section {
+    text-align: justify;
+    grid-column: unset;
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .hero .content section span {
+    position: absolute;
+
+    color: #fff;
+    font-size: 2rem;
+  }
 }

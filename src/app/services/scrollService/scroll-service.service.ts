@@ -6,17 +6,24 @@ import { Subject } from 'rxjs';
 })
 export class ScrollService {
 
-  private didScroll = new Subject<boolean>();
-
-  didScroll$ = this.didScroll.asObservable();
+  private scroll = new Subject<boolean>();
+  didScroll$ = this.scroll.asObservable();
 
   constructor() {
     console.log('Register scroll event');
-    window.addEventListener('scroll', this.scroll, true);
+
+    let timer = null;
+    window.addEventListener('scroll', () => {
+      if (timer !== null) {
+          clearTimeout(timer);
+      }
+      timer = setTimeout(() => {
+            this.scrollStopped();
+      }, 500);
+    }, false);
   }
 
-  scroll = (): void => {
-    console.log('Scroll happended');
-    this.didScroll.next(true);
+  scrollStopped = (): void => {
+    this.scroll.next(true);
   }
 }

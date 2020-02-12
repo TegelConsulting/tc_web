@@ -9,6 +9,6 @@ import { ScrollService } from './services/scrollService/scroll-service.service';
 export class AppComponent {
   title = 'Tegel Consulting';
 
-  constructor(scrollService: ScrollService) {
+  constructor() {
   }
 }

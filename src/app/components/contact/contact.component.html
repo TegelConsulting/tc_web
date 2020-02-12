@@ -5,14 +5,48 @@
     </div>
   </div>
   <div class="content">
-    <form [formGroup]="contactForm" (ngSubmit)="sendMessage()" novalidate>
-      <input type="text" formControlName="name" placeholder="Namn" required />
-      <input type="email" formControlName="email" placeholder="someone@domain.se" required />
-      <input type="phone" formControlName="phone" placeholder="070-1234556" />
+    <form [formGroup]="contactForm" (ngSubmit)="sendMessage()" novalidate *ngIf="!messageSend">
+      <div class="formgroup name">
+        <input type="text" formControlName="name" placeholder="Förnamn Efternamn" required />
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="validationerror">
+          <div *ngIf="name.errors.required">
+            Namn är obligatoriskt
+          </div>
+        </div>
+      </div>
 
-      <textarea formControlName="message" placeholder="Beskriv din fråga här" cols="50" rows="10"></textarea>
+      <div class="formgroup email">
+        <input type="email" formControlName="email" placeholder="someone@domain.se" required />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validationerror">
+          <div *ngIf="email.errors.required">
+            E-post att obligatorkst
+          </div>
+          <div *ngIf="email.errors.email">
+            Kontrollera att detta är en korrekt e-postadress
+          </div>
+        </div>
+      </div>
 
-      <button type="submit" class="contactsubmit">Skicka</button>
+      <div class="formgroup phone">
+        <input type="phone" formControlName="phone" placeholder="070-1234556" />
+      </div>
+
+      <div class="formgroup message">
+        <textarea id="messagebox" formControlName="message" placeholder="Beskriv din fråga här" cols="50" rows="10" required></textarea>
+        <div *ngIf="message.invalid && (message.dirty || message.touched)" class="validationerror">
+          <div *ngIf="message.errors.required">
+            Meddelande är obligatoriskt
+          </div>
+        </div>
+      </div>
+
+      <button [@buttonvalid]="contactForm.valid ? 'in' : 'out'" type="submit" [class]="contactForm.valid ? 'formgroup button valid' : 'formgroup button'" [disabled]="!contactForm.valid">Skicka</button>
+
     </form>
+
+    <div class="message-container">
+      <div *ngIf="messageSend" class="sendmessage success">Ditt meddelande har skickats</div>
+      <div *ngIf="messageError" class="sendmessage error">Ånej! Någonting gick fel! Försök gärna igen</div>
+    </div>
   </div>
 </div>

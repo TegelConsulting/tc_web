@@ -1,25 +1,20 @@
 .nav-container {
   display: grid;
-  grid-template-columns: [paddingleft] 20px [logo] 200px [empty] auto [links] 200px [paddingright] 20px;
+  grid-template-columns: [paddingleft] 20px [links] auto [paddingright] 20px;
   grid-template-rows: 90px;
+  grid-auto-flow: column;
+  align-items: center;
 }
 
 .nav-container .logo {
-  grid-column-start: logo;
-  grid-column-end: empty;
-  grid-row-start: 1;
-}
-
-.nav-container .logo img {
-  height: 100%;
+  display: none;
 }
 
 .nav-container .links {
   grid-column-start: links;
   grid-column-end: paddingright;
   grid-row-start: 1;
-  align-self: center;
-  justify-self: stretch;
+  justify-items: center;
 
   display: grid;
   grid-auto-flow: column;
@@ -27,4 +22,50 @@
 
 .link {
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-container {
+    display: grid;
+    grid-template-columns: [paddingleft] 20px [logo] 30% [empty] auto [links] 200px [paddingright] 20px;
+    grid-template-rows: 90px;
+  }
+
+  .nav-container .logo {
+    grid-column-start: logo;
+    grid-column-end: empty;
+    grid-row-start: 1;
+    display: block;
+  }
+
+  .nav-container .logo img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-container {
+    display: grid;
+    grid-template-columns: [paddingleft] 20px [logo] 200px [empty] auto [links] 200px [paddingright] 20px;
+    grid-template-rows: 90px;
+  }
+
+  .nav-container .logo img {
+    height: 100%;
+  }
+
+  .nav-container .links {
+    grid-column-start: links;
+    grid-column-end: paddingright;
+    grid-row-start: 1;
+    align-self: center;
+    justify-self: stretch;
+
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  .link {
+    cursor: pointer;
+  }
 }

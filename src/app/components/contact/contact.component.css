@@ -1,7 +1,138 @@
 .hero {
-  background-image: url("../../../assets/images/nordwood-themes-EZSm8xRjnX0-unsplash.jpg");
+  background-image: url("../../../assets/images/sarah-dorweiler-QeVmJxZOv3k-unsplash.jpg");
+
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 95px auto;
 }
 
 .hero .content {
-  min-height: 100vh;
+  /* height: 100vh; */
+}
+
+form {
+  display: grid;
+  grid-template-columns: 20px [form] 1fr 20px;
+  grid-template-rows: 30px repeat(3, 50px) 200px 75px;
+  align-items: center;
+  justify-content: stretch;
+  grid-row-gap: 3%;
+}
+
+form .formgroup {
+  grid-column: form;
+  grid-column-gap: 15px;
+}
+
+form .name {
+  grid-row-start: 2;
+}
+
+form .email {
+  grid-row: 3;
+}
+
+form .phone {
+  grid-row: 4;
+}
+
+form .message {
+  grid-row: 5;
+}
+
+form .button {
+  grid-row: 6;
+}
+
+form .formgroup input, form .formgroup textarea {
+  width: 100%;
+  padding: 0 10px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input, textarea {
+  border-radius: 5px;
+  height: 2rem;
+  border: 1px solid grey;
+}
+
+textarea#messagebox {
+  height: 100%;
+  padding-top: 10px;
+  resize: none;
+}
+
+button {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  font-size: 1.2rem;
+}
+
+button.valid {
+  background-color: forestgreen;
+}
+
+.message-container {
+  display: grid;
+  grid-template-columns: 20px [form] 1fr 20px;
+  grid-template-rows: 20% 1fr;
+  align-items: start;
+}
+
+.sendmessage {
+  grid-column: form;
+  grid-row: 2;
+
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+
+  font-size: 1.3rem;
+}
+
+.sendmessage.success {
+  background-color: rgba(55, 163, 13, 0.6);
+}
+
+.sendmessage.error {
+  background-color: rgba(163, 13, 13, 0.6);
+}
+
+.validationerror {
+  color: darkred;
+  padding-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    background-image: url("../../../assets/images/nordwood-themes-EZSm8xRjnX0-unsplash.jpg");
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 20px [form] 1fr 20px;
+    grid-template-rows: 50px repeat(3, 50px) 200px 75px;
+    align-items: center;
+    justify-content: stretch;
+    grid-row-gap: 3%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero .header div {
+    grid-column-end: 1;
+  }
+
+  form {
+    grid-template-columns: 2fr [form] 1fr 1fr;
+    grid-template-rows: 100px repeat(3, 50px) 200px 75px 1fr;
+  }
+
+  .message-container {
+    grid-template-columns: 2fr [form] 1fr 1fr;
+  }
 }

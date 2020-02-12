@@ -1,13 +1,44 @@
 .hero {
-  background-image: url("../../../assets/images/christina-wocintechchat-com-F75IfIWSqRY-unsplash.jpg");
+  background-image: url("../../../assets/images/annie-spratt-pKpipZVVEC0-unsplash.jpg");
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 95px auto;
 }
 
 .hero .content {
-  min-height: 200vh;
+  height: 100%;
+
+  display:grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.hero .content section {
+  padding: 30px;
+  text-align: center;
+  font-size: 50pt;
+  color: white;
+  /* border: 1px solid lightgray;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px; */
 }
 
 .navbar {
-  display: block;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 1fr;
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    /* background-image: url("../../../assets/images/johny-vino-R54V69BN0MI-unsplash.jpg"); */
+    background-position: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
 }

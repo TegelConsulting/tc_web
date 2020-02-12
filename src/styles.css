@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 html {
   height: 100%;
+
+  font-family: 'Convergence';
 }
 
 body {
@@ -10,7 +12,8 @@ body {
 }
 
 a, .link {
-  color: rgb(143, 35, 179);
+  /* color: rgb(143, 35, 179); */
+  color: white;
   text-decoration: none;
 }
 
@@ -47,4 +50,5 @@ a:hover, .link {
   grid-template-columns: 1fr;
   justify-content: left;
   align-items: center;
+  color: #fff;
 }

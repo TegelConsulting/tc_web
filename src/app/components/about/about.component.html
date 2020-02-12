@@ -1,8 +1,21 @@
 <div class="hero">
   <div id="about" class="header">
     <div [@fadeAnimation]="startTransition ? 'in' : 'out'">
-      Om Tegel Consulting
+      Om oss
     </div>
   </div>
-  <div class="content"></div>
+  <div class="content">
+    <section >
+      <span [@about1]="showabout ? 'in' : 'out'">Utbildning</span>
+    </section>
+    <section>
+      <span [@about2]="showabout ? 'in' : 'out'">Utveckling</span>
+    </section>
+    <section>
+      <span [@about3]="showabout ? 'in' : 'out'">.net core, .net, sql</span>
+    </section>
+    <section>
+      <span [@about4]="showabout ? 'in' : 'out'">react, angular, vue</span>
+    </section>
+  </div>
 </div>
