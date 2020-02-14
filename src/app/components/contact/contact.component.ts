@@ -64,7 +64,7 @@ export class ContactComponent implements OnInit {
     };
 
     // Send mail through azure api
-    const response = await fetch('https://localhost:5001/sendmail', {
+    const response = await fetch('https://tc-sendmail.azurewebsites.net/sendmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
