@@ -1,6 +1,6 @@
 .hero {
   background-image: url("../../../assets/images/sharon-mccutcheon-NkQD-RHhbvY-unsplash.jpg");
-  min-height: 100vh;
+  height: 100vh;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -20,6 +20,11 @@
 .hero .content section {
   text-align: justify;
   grid-column: center;
+}
+
+.hero .content section span {
+  color: #fff;
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -54,8 +59,5 @@
 
   .hero .content section span {
     position: absolute;
-
-    color: #fff;
-    font-size: 2rem;
   }
 }

@@ -4,8 +4,8 @@
       Om oss
     </div>
   </div>
-  <div class="content">
-    <section >
+  <div class="content" *ngIf="!isMobile">
+    <section>
       <span [@about1]="showabout ? 'in' : 'out'">Utbildning</span>
     </section>
     <section>
@@ -16,6 +16,21 @@
     </section>
     <section>
       <span [@about4]="showabout ? 'in' : 'out'">react, angular, vue</span>
+    </section>
+  </div>
+
+  <div class="content" *ngIf="isMobile">
+    <section [@mobile1]="showabout ? 'in' : 'out'">
+      <span>Utbildning</span>
+    </section>
+    <section [@mobile2]="showabout ? 'in' : 'out'">
+      <span>Utveckling</span>
+    </section>
+    <section [@mobile3]="showabout ? 'in' : 'out'">
+      <span>.net core, .net, sql</span>
+    </section>
+    <section [@mobile4]="showabout ? 'in' : 'out'">
+      <span>react, angular, vue</span>
     </section>
   </div>
 </div>
