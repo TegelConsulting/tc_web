@@ -99,6 +99,7 @@ button.sending {
   grid-template-columns: 20px [form] 1fr 20px;
   grid-template-rows: 20% 1fr;
   align-items: start;
+  height: 100%;
 }
 
 .sendmessage {
