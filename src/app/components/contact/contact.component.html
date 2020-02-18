@@ -16,7 +16,7 @@
       </div>
 
       <div class="formgroup email">
-        <input type="email" formControlName="email" placeholder="someone@domain.se" required />
+        <input type="email" formControlName="email" placeholder="epost@doman.se" required />
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validationerror">
           <div *ngIf="email.errors.required">
             E-post att obligatorkst
@@ -40,7 +40,9 @@
         </div>
       </div>
 
-      <button [@buttonvalid]="contactForm.valid ? 'in' : 'out'" type="submit" [class]="contactForm.valid ? 'formgroup button valid' : 'formgroup button'" [disabled]="!contactForm.valid">Skicka</button>
+      <button [@buttonvalid]="contactForm.valid ? 'in' : 'out'" [ngClass]="{'sending': sending}" type="submit" [class]="contactForm.valid ? 'formgroup button valid' : 'formgroup button'" [disabled]="!contactForm.valid || sending">
+        Skicka
+      </button>
 
     </form>
 

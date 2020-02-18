@@ -1,5 +1,5 @@
 .hero {
-  background-image: url("../../../assets/images/sarah-dorweiler-QeVmJxZOv3k-unsplash_mobile.jpg");
+  background-image: url("../../../assets/images/sarah-dorweiler-QeVmJxZOv3k-unsplash_small.jpg");
 
   height: 100vh;
 
@@ -74,6 +74,24 @@ button {
 
 button.valid {
   background-color: forestgreen;
+}
+
+button.sending {
+  background: linear-gradient(-45deg, #9bb89b, #a6a7a5, #6d966c, forestgreen);
+  background-size: 400% 400%;
+  animation: gradient 3.5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .message-container {

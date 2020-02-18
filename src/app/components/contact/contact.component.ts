@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { ScrollService } from 'src/app/services/scrollService/scroll-service.service';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -26,6 +26,7 @@ export class ContactComponent implements OnInit {
   startTransition = false;
   messageSend = false;
   messageError = false;
+  sending = false;
   private scrollService: ScrollService;
   private formBuilder: FormBuilder;
 
@@ -63,6 +64,7 @@ export class ContactComponent implements OnInit {
         phone: this.contactForm.value.phone
     };
 
+    this.sending = true;
     // Send mail through azure api
     const response = await fetch('https://tc-sendmail.azurewebsites.net/sendmail', {
       method: 'POST',
@@ -72,6 +74,7 @@ export class ContactComponent implements OnInit {
       body: JSON.stringify(mail)
     });
 
+    this.sending = false;
     if (response.ok) {
       this.messageSend = true;
     } else {
