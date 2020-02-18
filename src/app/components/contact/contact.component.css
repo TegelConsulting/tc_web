@@ -1,5 +1,5 @@
 .hero {
-  background-image: url("../../../assets/images/sarah-dorweiler-QeVmJxZOv3k-unsplash.jpg");
+  background-image: url("../../../assets/images/sarah-dorweiler-QeVmJxZOv3k-unsplash_mobile.jpg.jpg");
 
   height: 100vh;
 
@@ -109,7 +109,7 @@ button.valid {
 
 @media screen and (min-width: 768px) {
   .hero {
-    background-image: url("../../../assets/images/nordwood-themes-EZSm8xRjnX0-unsplash.jpg");
+    background-image: url("../../../assets/images/nordwood-themes-EZSm8xRjnX0-unsplash_small.jpg.jpg");
   }
 
   form {

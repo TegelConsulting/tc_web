@@ -1,5 +1,5 @@
 .hero {
-  background-image: url("../../../assets/images/sharon-mccutcheon-NkQD-RHhbvY-unsplash.jpg");
+  background-image: url("../../../assets/images/sharon-mccutcheon-NkQD-RHhbvY-unsplash_mobile.jpg");
   height: 100vh;
 
   display: grid;
@@ -33,7 +33,7 @@
 
 @media screen and (min-width: 1024px) {
   .hero {
-    background-image: url("../../../assets/images/kristopher-roller-PC_lbSSxCZE-unsplash.jpg");
+    background-image: url("../../../assets/images/kristopher-roller-PC_lbSSxCZE-unsplash_small.jpg");
   }
 
   .hero .header div {

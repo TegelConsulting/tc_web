@@ -1,5 +1,5 @@
 .hero {
-  background-image: url("../../../assets/images/annie-spratt-pKpipZVVEC0-unsplash.jpg");
+  background-image: url("../../../assets/images/annie-spratt-pKpipZVVEC0-unsplash_mobile.jpg");
   height: 100vh;
 
   display: grid;
@@ -34,7 +34,7 @@
 
 @media screen and (min-width: 768px) {
   .hero {
-    /* background-image: url("../../../assets/images/johny-vino-R54V69BN0MI-unsplash.jpg"); */
+    background-image: url("../../../assets/images/annie-spratt-pKpipZVVEC0-unsplash_small.jpg");
     background-position: center;
   }
 }
