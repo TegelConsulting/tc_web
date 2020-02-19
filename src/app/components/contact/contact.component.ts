@@ -25,7 +25,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ContactComponent implements OnInit {
   startTransition = false;
-  messageSend = true;
+  messageSend = false;
   messageError = false;
   sending = false;
   private scrollService: ScrollService;
