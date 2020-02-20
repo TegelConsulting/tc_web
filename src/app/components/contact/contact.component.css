@@ -9,13 +9,16 @@
 }
 
 .hero .content {
-  /* height: 100vh; */
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 20px [form] 1fr 20px;
+  grid-template-rows: 30px repeat(3, 50px) 200px 75px;
 }
 
 form {
   display: grid;
-  grid-template-columns: 20px [form] 1fr 20px;
-  grid-template-rows: 30px repeat(3, 50px) 200px 75px;
+  grid-column: form;
+
   align-items: center;
   justify-content: stretch;
   grid-row-gap: 3%;
@@ -100,6 +103,8 @@ button.sending {
   grid-template-rows: 20% 1fr;
   align-items: start;
   height: 100vh;
+
+  grid-column: form;
 }
 
 .sendmessage {
